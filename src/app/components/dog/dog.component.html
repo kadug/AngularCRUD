@@ -1,0 +1,24 @@
+<div id="loginbox" style="margin-top:10px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+  <div class="panel panel-info" >
+    <div class="panel-heading">
+        <div class="panel-title">Add Dog</div>
+    </div>
+    <div style="padding-top:30px" class="panel-body" >         
+      <form (ngSubmit)="onSubmit()">
+          <div style="margin-bottom: 25px" class="text-left form-group">
+            <label for="dogName"><b>Dog Name:</b></label>
+            <input id="dogName" type="text" class="form-control" name="name" placeholder="Dog Name" [(ngModel)]="dog.name">                                        
+          </div>     
+          <div style="margin-bottom: 25px" class="text-left form-group">
+            <label for="dogBreed"><b>Dog Breed:</b></label>
+            <input id="dogBreed" type="text" class="form-control" name="raza" placeholder="Dog Breed" [(ngModel)]="dog.raza">
+          </div>
+          <div style="margin-top:10px" class="form-group">
+            <div class="col-sm-12 controls">
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+          </div>
+      </form>     
+    </div>                     
+  </div>  
+</div>

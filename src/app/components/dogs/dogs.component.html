@@ -1,0 +1,34 @@
+<div *ngIf="dogs?.length > 0; else noDogs" >
+  <ul class="list-group">
+    <li *ngFor="let dog of dogs" class="list-group-item">
+      <b>{{ dog.name }}</b> : {{dog.raza}}
+      <span class="badge" (click)="deleteDog($event, dog)">
+        <a href="#" style="color:white;text-decoration:none;"><i class="glyphicon glyphicon-trash"></i></a>
+      </span>
+      <span class="badge" (click)="editDog($event, dog)">
+        <a href="#" style="color:white;text-decoration:none;"><i class="glyphicon glyphicon-pencil"></i></a>
+      </span>
+      <div *ngIf="editState && dogToEdit.id === dog.id" style="min-height:180px">
+          <form (ngSubmit)="updateDog(dog)">
+              <div style="margin-bottom: 25px" class="text-left form-group">
+                <label for="dogName"><b>Dog Name:</b></label>
+                <input id="dogName" type="text" class="form-control" name="name" placeholder="Dog Name" [(ngModel)]="dog.name">                                        
+              </div>     
+              <div style="margin-bottom: 25px" class="text-left form-group">
+                <label for="dogBreed"><b>Dog Breed:</b></label>
+                <input id="dogBreed" type="text" class="form-control" name="raza" placeholder="Dog Breed" [(ngModel)]="dog.raza">
+              </div>
+              <div style="margin-top:10px" class="form-group">
+                <div class="col-sm-12 controls">
+                    <input type="submit" class="btn" value="Update Dog">
+                    <button class="btn red" (click)="deleteDog($event, task)">Delete Dog</button>
+                </div>
+              </div>
+          </form>
+        </div>
+    </li>
+  </ul>
+</div>
+<ng-template #noDogs>
+  <h4>There is no Dogs yet.</h4>
+</ng-template> 
